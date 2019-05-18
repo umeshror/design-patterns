@@ -1,4 +1,5 @@
 """
+Open for extension but closed for modifications.
 The Open Close Principle states that the design and writing of the code should be done in
  a way that new functionality should be added with minimum changes in the existing code.
   The design should be done in a way to allow the adding of new functionality as new classes,
