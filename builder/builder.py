@@ -60,7 +60,9 @@ class HtmlBuilder:
 hello = 'hello'
 parts = ['<p>', hello, '</p>']
 print(''.join(parts))
+# <p>hello</p>
 
+print( "----------")
 # now I want an HTML list with 2 words in it
 words = ['hello', 'world']
 parts = ['<ul>']
@@ -68,7 +70,13 @@ for w in words:
     parts.append(f'  <li>{w}</li>')
 parts.append('</ul>')
 print('\n'.join(parts))
+"""
+<ul>
+  <li>hello</li>
+  <li>world</li>
+</ul>
 
+"""
 # ordinary non-fluent builder
 # builder = HtmlBuilder('ul')
 builder = HtmlElement.create('ul')
@@ -76,6 +84,17 @@ builder.add_child('li', 'hello')
 builder.add_child('li', 'world')
 print('Ordinary builder:')
 print(builder)
+"""
+<ul>
+  <li>
+    hello
+  </li>
+  <li>
+    world
+  </li>
+</ul>
+
+"""
 
 # fluent builder
 builder.clear()
@@ -83,3 +102,15 @@ builder.add_child_fluent('li', 'hello') \
     .add_child_fluent('li', 'world')
 print('Fluent builder:')
 print(builder)
+
+"""
+<ul>
+  <li>
+    hello
+  </li>
+  <li>
+    world
+  </li>
+</ul>
+
+"""
