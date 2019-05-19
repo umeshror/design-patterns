@@ -1,7 +1,5 @@
 """
 Singleton using decorator class to avoid calling __init__ method again and again
-
-
 """
 
 def singleton(class_):
@@ -24,4 +22,5 @@ class Database:
 if __name__ == '__main__':
     d1 = Database()
     d2 = Database()
+    d3 = Database()
     print(d1 == d2)
