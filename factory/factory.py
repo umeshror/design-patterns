@@ -1,3 +1,7 @@
+"""
+In simple words ny method which create an object
+"""
+
 from enum import Enum
 from math import *
 
@@ -45,7 +49,7 @@ class Point:
 
     factory = Factory()
 
-# take out factory methods to a separate class
+# take out factory methods(line no: 38, 42) to a separate class :SRP
 class PointFactory:
     @staticmethod
     def new_cartesian_point(x, y):

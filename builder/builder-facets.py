@@ -1,3 +1,19 @@
+"""
+
+                              Person
+                                ||
+                                ||
+                                ||
+                                ||
+                          PersonBuilder
+                            ||     ||
+                            ||     ||
+                    lives          works         
+            PersonAddressBuilder  PersonJobBuilder         
+
+"""""
+
+
 class Person:
     def __init__(self):
         print('Creating an instance of Person')
