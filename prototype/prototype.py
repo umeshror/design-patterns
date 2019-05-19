@@ -1,5 +1,10 @@
 """
-A partially or fully initialised object that you copy(clone) and make use of
+A partially or fully initialised object that you copy(clone) and make use of.
+
+To implement a Prototype partially construct an object and store somewhere.
+Deep copy he Prototype
+Customize the resulting instance
+
 """
 
 import copy
