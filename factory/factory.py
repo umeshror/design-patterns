@@ -1,5 +1,7 @@
 """
 In simple words ny method which create an object
+A static methods which creates objects
+An entity that take care of object creation
 """
 
 from enum import Enum
