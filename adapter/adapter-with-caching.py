@@ -1,11 +1,3 @@
-"""
-
-A constructor which adapts an existing interface X to conform to the required innterface Y.
-
-Charger to US Charger, India charger with the help of adapter
-
-"""
-
 class Point:
     def __init__(self, x, y):
         self.y = y
@@ -36,42 +28,57 @@ class Rectangle(list):
         self.append(Line(Point(x, y + height), Point(x + width, y + height)))
 
 
-class LineToPointAdapter(list):
+class LineToPointAdapter:
     count = 0
+    cache = {}
 
     def __init__(self, line):
+        self.hash = hash(line)
+        if self.hash in self.cache:
+            return
+
+        super().__init__()
         self.count += 1
-        print(f'{self.count}: Generating points for line '
-              f'[{line.start.x},{line.start.y}]→'
-              f'[{line.end.x},{line.end.y}]')
+        print(f'{self.count}: Generating points for line ' +
+              f'[{line.start.x},{line.start.y}]→[{line.end.x},{line.end.y}]')
 
         left = min(line.start.x, line.end.x)
         right = max(line.start.x, line.end.x)
         top = min(line.start.y, line.end.y)
         bottom = min(line.start.y, line.end.y)
 
+        points = []
+
         if right - left == 0:
             for y in range(top, bottom):
-                self.append(Point(left, y))
+                points.append(Point(left, y))
         elif line.end.y - line.start.y == 0:
             for x in range(left, right):
-                self.append(Point(x, top))
+                points.append(Point(x, top))
 
+        self.cache[self.hash] = points
 
-
+    def __iter__(self):
+        return iter(self.cache[self.hash])
 
 def draw(rcs):
-    print("\n\n--- Drawing some stuff ---\n")
+    print('Drawing some rectangles...')
     for rc in rcs:
         for line in rc:
             adapter = LineToPointAdapter(line)
             for p in adapter:
                 draw_point(p)
+    print('\n')
+
 
 if __name__ == '__main__':
     rs = [
         Rectangle(1, 1, 10, 10),
         Rectangle(3, 3, 6, 6)
     ]
+
     draw(rs)
     draw(rs)
+
+    # can define your own hashes or use the defaults
+    print(hash(Line(Point(1, 1), Point(10, 10))))
