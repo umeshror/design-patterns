@@ -5,6 +5,8 @@ memory by storing the data externally so not storing it right in the attribute w
 
 to be but you store it externally and then you refer to it.
 
+Store common data externally
+
 """
 import random
 import string
