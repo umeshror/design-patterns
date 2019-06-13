@@ -7,10 +7,9 @@ class Point:
 def draw_point(p):
     print('.', end='')
 
-
-# ^^ you are given this
-
-# vv you are working with this
+    
+    
+    
 class Line:
     def __init__(self, start, end):
         self.end = end
