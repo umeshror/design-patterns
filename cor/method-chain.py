@@ -70,3 +70,5 @@ if __name__ == '__main__':
 
     root.handle()  # apply modifiers
     print(goblin)
+
+    
