@@ -43,6 +43,7 @@ class InOrderIterator:
       else:
         raise StopIteration
 
+        
 def traverse_in_order(root):
   def traverse(current):
     if current.left:
