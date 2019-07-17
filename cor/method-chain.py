@@ -38,18 +38,18 @@ class NoBonusesModifier(CreatureModifier):
         print('No bonuses for you!')
 
 
-class DoubleAttackModifier(CreatureModifier):
-    def handle(self):
-        print("Doubling %s's attack" % self.creature.name)
-        self.creature.attack *= 2
-        super().handle()
-
-
 class IncreaseDefenseModifier(CreatureModifier):
     def handle(self):
         if self.creature.attack <= 2:
             print("Increasing %s's defense" % self.creature.name)
             self.creature.defense += 1
+        super().handle()
+
+        
+class DoubleAttackModifier(CreatureModifier):
+    def handle(self):
+        print("Doubling %s's attack" % self.creature.name)
+        self.creature.attack *= 2
         super().handle()
 
 
