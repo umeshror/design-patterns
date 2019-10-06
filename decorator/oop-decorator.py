@@ -61,3 +61,5 @@ if __name__ == '__main__':
     # nothing prevents double application
     mixed = ColoredShape(ColoredShape(Circle(3), 'red'), 'blue')
     print(mixed)
+    
+    
